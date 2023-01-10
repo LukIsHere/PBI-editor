@@ -1,3 +1,5 @@
+
+
 var screen = /** @type {HTMLCanvasElement} */ document.getElementById("screen");
 var ctx = /** @type {CanvasRenderingContext2D} */ screen.getContext("2d");
 var selected = 0;
@@ -275,27 +277,96 @@ class PBI {
         console.log(buffer)
         return buffer;
     }
-    dumpMeThis(){
-        var out = "{";
-        //F -> 1111
-        //uint4 15 0000
-        //uint8 255 00001111
-        //uint16 
-        //size
-        out += ((this.height)&0x00FF) + ',' + ((this.height)>>8);
-        out += ',' + ((this.width)&0x00FF) + ',' + ((this.width)>>8);
-        for(var i = 0;i<15;i++){
-            out += ',' + ((this.pallet[i].GetRGB565())&0x00FF) + ',' + ((this.pallet[i].GetRGB565())>>8);
-        }
+    getPixelArray(){
+        var pureArray = [];
         var p1;
         var p2;
         for(var i = 0;i<Math.floor((this.height*this.width)/2);i++){
             p1 = this.pixels[(i*2)];
-            p2 = this.pixels[(i*2)+1]; 
-            out += ',' + ((p1<<4)|p2);
+            p2 = this.pixels[(i*2)+1];
+            if(((i*2)+1)>this.width*this.height)p2 = 0;
+            pureArray.push((p1<<4)|p2);
         }
-        out += '}';
+        return pureArray;
+    }
+    getMetaArray(compression,other){
+        return [((compression<<4)|other)]
+    }
+    getSizeArray(){
+        var out = []
+        out.push((this.height)&0x00FF);//h
+        out.push((this.height)>>8);//h
+        out.push((this.width)&0x00FF);//w
+        out.push((this.width)>>8);//w
         return out;
+    }
+    makePureArray(){
+        var pureArray = [];
+        //F -> 1111
+        //uint4 15 0000
+        //uint8 255 00001111
+        //uint16
+        //uint4 x2 -> uint8 ((p1<<4)|p2);
+    }
+    getTexted(array){
+        var out = "{"
+        var first = true;
+        array.forEach(e=>{
+            if(first){
+                first = false;
+            }else out+=','
+            out += e;
+        })
+        out+="}";
+        return out
+    }
+    //pallet
+    getPalletArray(){
+        var out = [];
+        for(var i = 0;i<15;i++){
+            out.push((this.pallet[i].GetRGB565())&0x00FF);
+            out.push((this.pallet[i].GetRGB565())>>8);
+        }
+        return out;
+    }
+    getShorter(){
+        var normal = this.getPixelArray();
+        return {data:normal,compr:0};
+    }
+    dump(){
+        var data = this.getShorter();
+        var meta = this.getMetaArray(data.compr,0);
+        var size = this.getSizeArray();
+        var pallet = this.getPalletArray();
+        var out = [];
+        meta.forEach(e=>{
+            out.push(e)
+        })
+        size.forEach(e=>{
+            out.push(e)
+        })
+        pallet.forEach(e=>{
+            out.push(e)
+        })
+        data.data.forEach(e=>{
+            out.push(e)
+        })
+        return this.getTexted(out);
+    }
+    dumpPalletOnly(){
+        return this.getTexted(this.getPalletArray());
+    }
+    dunpNoPallet(){
+        var data = this.getPixelArray();
+        var size = this.getSizeArray();
+        var out = [];
+        size.forEach(e=>{
+            out.push(e)
+        })
+        data.forEach(e=>{
+            out.push(e)
+        })
+        return this.getTexted(out);
     }
     setWidth(w){
         var newPix = [];
@@ -341,6 +412,8 @@ class PBI {
   
 var img = new PBI(16,16)
 
+img.setPixel(0,0,0);
+
 const screens = {
     grid : "gr",
     colorpallet : "cp",
@@ -379,7 +452,16 @@ function isInside(x,y,Bx,By,ow,oh){
     else return false;
 
 }
+
+function reffresh(){
+    //document.getElementById("data").value = img.dumpMeThis();
+    document.getElementById("data").value = img.dunpNoPallet()+img.dumpPalletOnly();
+    document.getElementById("more").innerHTML = "size in bytes  "+(4+(15*2)+Math.floor(img.height*img.width/2));
+}
+reffresh();
+
 function clicked(x,y){
+    reffresh();
     //color selector
     if(s_colors){
         //img.width*10/8
@@ -458,10 +540,12 @@ function toggleMode(){
 function setHeight(h){
     img.setHeight(h)
     resizeCnv()
+    reffresh();
 }
 function setWidth(w){
     img.setWidth(w)
     resizeCnv()
+    reffresh();
 }
 function resizeCnv(){
     screen.width = img.width*10;

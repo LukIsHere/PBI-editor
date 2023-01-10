@@ -8,6 +8,15 @@
 </head>
 <body>
     <canvas id="screen" height="1000" width="1000" style="max-width: 100%;max-height: 100%;height: auto;width: auto; position: absolute; background-color: black; top: 0px;left: 0px; display: block; margin: auto; position: absolute;bottom: 0;right: 0;"></canvas>
+    <p>
+        <textarea name="data" id="data" style="width: 100%;" rows="15"></textarea>
+    </p>
+    <p>
+        <input type="number" value="16" onchange="setHeight(this.value);" id="h">
+        <input type="number" value="16" onchange="setWidth(this.value);" id="w">
+        <div id="more"></div>
+    </p>
+
     <script src="./index.js"></script>
 </body>
 </html>
