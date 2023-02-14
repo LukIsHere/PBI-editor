@@ -1,0 +1,303 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "libs/llcd",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd-Debug-c3373fc400546c0eb71c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "libs/llcd",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						8
+					]
+				},
+				{
+					"build" : "libs/llcd/libs/sfml",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml-Debug-9d3e131e0ca8c44a2d36.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml"
+				},
+				{
+					"build" : "libs/llcd/libs/sfml/src/SFML",
+					"childIndexes" : 
+					[
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml.src.SFML-Debug-b12e368322e7985cae7d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml/src/SFML"
+				},
+				{
+					"build" : "libs/llcd/libs/sfml/src/SFML/System",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml.src.SFML.System-Debug-830f4c3d4c66a1fd78e7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml/src/SFML/System",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "libs/llcd/libs/sfml/src/SFML/Window",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml.src.SFML.Window-Debug-60d26700e85a32a2cc01.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml/src/SFML/Window",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "libs/llcd/libs/sfml/src/SFML/Network",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml.src.SFML.Network-Debug-f7615d204e842b161dbd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml/src/SFML/Network",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "libs/llcd/libs/sfml/src/SFML/Graphics",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml.src.SFML.Graphics-Debug-47e8128f1182701602cc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml/src/SFML/Graphics",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "libs/llcd/libs/sfml/src/SFML/Audio",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.llcd.libs.sfml.src.SFML.Audio-Debug-d45bb2094b45e8cd6e2d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "libs/llcd/libs/sfml/src/SFML/Audio",
+					"targetIndexes" : 
+					[
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "PBI_Editor",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "llcd",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						8
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					],
+					"name" : "SFML",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "PBI_Editor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-PBI_Editor-Debug-91a2bdd05af2da0a0498.json",
+					"name" : "PBI_Editor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "box::@bcad687b35449ca9861e",
+					"jsonFile" : "target-box-Debug-73fccc394f0e342a5056.json",
+					"name" : "box",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "llcd::@bcad687b35449ca9861e",
+					"jsonFile" : "target-llcd-Debug-fae77e20ff0f28edf0fb.json",
+					"name" : "llcd",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "sfml-audio::@b071cac228b7b75af3e9",
+					"jsonFile" : "target-sfml-audio-Debug-f3530c24e1c6d5d7c6d6.json",
+					"name" : "sfml-audio",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "sfml-graphics::@d9255434737a88bd9bef",
+					"jsonFile" : "target-sfml-graphics-Debug-e929c018991a9f95ac15.json",
+					"name" : "sfml-graphics",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "sfml-network::@feaac264772a745ea53c",
+					"jsonFile" : "target-sfml-network-Debug-9ce4b0ee6aa4b9a441f4.json",
+					"name" : "sfml-network",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "sfml-system::@8dfc39fbb993649eaca0",
+					"jsonFile" : "target-sfml-system-Debug-d3b7fc8ab5490069ab65.json",
+					"name" : "sfml-system",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "sfml-window::@00543f420fc01ecb27d9",
+					"jsonFile" : "target-sfml-window-Debug-1e982a239d79cb82a09e.json",
+					"name" : "sfml-window",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "test::@bcad687b35449ca9861e",
+					"jsonFile" : "target-test-Debug-80ee780a17f16f82c3e5.json",
+					"name" : "test",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/luk/Dokumenty/GitHub/PBI-editor/build",
+		"source" : "/home/luk/Dokumenty/GitHub/PBI-editor"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
